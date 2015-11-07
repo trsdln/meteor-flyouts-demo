@@ -1,5 +1,5 @@
 <template name="Flyout">
-  <div class="flyout show-flyout">
+  <div class="flyout {{#if isHidden}}hide-flyout{{else}}show-flyout{{/if}}">
     <div class="flyout-header">
       <button class="close-flyout-button">x</button>
     </div>

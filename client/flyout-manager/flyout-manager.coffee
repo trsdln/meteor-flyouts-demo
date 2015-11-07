@@ -9,7 +9,13 @@ class _FlyoutManager
       @_flyoutTemplates.insert {name: templateName, data: data}
 
   close: (templateName) ->
-    @_flyoutTemplates.remove {name: templateName}
+#trigger hide animation first
+    @_flyoutTemplates.update {name: templateName}, {
+      $set: {visible: false}
+    }
+    #then remove template from dom
+    removeTemplateCb = => @_flyoutTemplates.remove {name: templateName}
+    Meteor.setTimeout removeTemplateCb, 1000
 
 
 flyoutManager = new _FlyoutManager()

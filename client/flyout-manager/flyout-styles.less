@@ -1,20 +1,5 @@
 @width: 200px;
 
-@keyframes showFlyout {
-  0% {
-    right: -@width;
-  }
-  100% {
-    right: 0;
-  }
-}
-
-.flyout-animation(@animation,@direction) {
-  animation-name: @animation;
-  animation-duration: 2s;
-  animation-direction: @direction;
-}
-
 .flyout-container {
   position: fixed;
   width: @width;
@@ -31,12 +16,37 @@
     bottom: 0;
     right: 0;
 
+    //animation stuff
+    @keyframes showFlyout {
+      0% {
+        right: -@width;
+      }
+      100% {
+        right: 0;
+      }
+    }
+
+    @keyframes hideFlyout {
+      0% {
+        right: 0;
+      }
+      100% {
+        right: -@width;
+      }
+    }
+
+    //animation mix-in
+    .flyout-animation(@animation) {
+      animation-name: @animation;
+      animation-duration: 1s;
+    }
+
     &.show-flyout {
-      .flyout-animation(showFlyout, normal);
+      .flyout-animation(showFlyout);
     }
 
     &.hide-flyout {
-      .flyout-animation(showFlyout, reverse);
+      .flyout-animation(hideFlyout);
     }
   }
 }
