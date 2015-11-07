@@ -1,5 +1,5 @@
 <template name="FlyoutManager">
-  <div class="flyout-container">
+  <div class="flyout-container {{#unless hasOpenedFlyouts}}flyout-container-hidden{{/unless}}">
     {{#each templates}}
       {{> Flyout}}
     {{/each}}

@@ -3,4 +3,5 @@ Template.Flyout.helpers
 
 Template.Flyout.events
   'click .close-flyout-button': (event, tmpl) ->
-    FlyoutManager.close tmpl.data.name
+    flyout = FlyoutManager._getInstanceById tmpl.data._id
+    flyout.close()

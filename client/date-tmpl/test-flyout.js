@@ -3,3 +3,11 @@ Template.DateTmpl.helpers({
     return new Date();
   }
 });
+
+Template.DateTmpl.events({
+  'click .new': function (event, tmpl) {
+    var flt = FlyoutManager.open('DateTmpl', {message: new Date().getTime()});
+    console.log(flt);
+  }
+});
+
