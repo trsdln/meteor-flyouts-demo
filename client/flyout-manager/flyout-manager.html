@@ -1,0 +1,11 @@
+<template name="FlyoutManager">
+  <div class="flyout-container">
+    {{#each templates}}
+      {{> Flyout}}
+    {{/each}}
+  </div>
+</template>
+
+<body>
+{{> FlyoutManager}}
+</body>

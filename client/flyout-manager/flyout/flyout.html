@@ -1,0 +1,10 @@
+<template name="Flyout">
+  <div class="flyout show-flyout">
+    <div class="flyout-header">
+      <button class="close-flyout-button">x</button>
+    </div>
+    <div class="flyout-content">
+      {{> Template.dynamic template=name data=data}}
+    </div>
+  </div>
+</template>

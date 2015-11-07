@@ -1,0 +1,45 @@
+@width: 200px;
+
+@keyframes showFlyout {
+  0% {
+    right: -@width;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+.flyout-animation(@animation,@direction) {
+  animation-name: @animation;
+  animation-duration: 2s;
+  animation-direction: @direction;
+}
+
+.flyout-container {
+  position: fixed;
+  width: @width;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  .flyout {
+    position: absolute;
+    background-color: #CCC;
+    width: @width;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    &.show-flyout {
+      .flyout-animation(showFlyout, normal);
+    }
+
+    &.hide-flyout {
+      .flyout-animation(showFlyout, reverse);
+    }
+  }
+}
+
+/* The element to apply the animation to */
+
