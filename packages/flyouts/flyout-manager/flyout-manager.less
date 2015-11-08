@@ -15,10 +15,14 @@
 .flyout-width-keyframes(@name; @start; @end) {
   .keyframes(@name,
   { 0% {
+    transform: rotateY(30deg);
     right: @start;
-  } 100% {
-      right: @end;
-    } });
+  } 25% {
+      transform: rotateY(30deg);
+    } 100% {
+        transform: rotateY(0deg);
+        right: @end;
+      } });
 }
 
 .flyout-width-keyframes(show-flyout, -100%, 0);
@@ -53,6 +57,7 @@
 
   width: @width;
   .flyout-responsiveness;
+  perspective: 1000px;
 
   &.flyout-container-hidden {
     display: none;
