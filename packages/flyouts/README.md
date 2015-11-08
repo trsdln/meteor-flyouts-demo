@@ -4,13 +4,13 @@ Easy customizable and reactive sidebar flyouts
 
 ### Example
 
-__ Step 1: __ Include `FlyoutManager` in your app layout or in body (in case you don't have layouts)
+Step 1: Include `FlyoutManager` in your app layout or in body (in case you don't have layouts)
 
 ```
 {{> FlyoutManager}}
 ```
 
-__ Step 2: __ Create template that will be showed as flyout
+Step 2: Create template that will be showed as flyout
 
 ```
 <template name="myCustomTemplate">
@@ -23,7 +23,7 @@ __ Step 2: __ Create template that will be showed as flyout
 </template>
 ```
 * Note: `close-flyout-button` is predefined class for close flyout button.
-You don't need to add any event handlers for it. *
+You don't need to add any event handlers for it.
 
 Style it whatever you want (in example is used LESS):
 
@@ -46,7 +46,7 @@ Style it whatever you want (in example is used LESS):
 }
 ```
 
-__ Step 3: __ Open you template in flayout window when you need it
+Step 3: Open your template in flayout window when you need it
 
 ```
 //open flyout
@@ -56,7 +56,7 @@ var yourFlyout = FlyoutManager.open('myCustomTemplate', {yourMessage: 'Hello, Fl
 yourFlyout.close()
 ```
 
-__ Step 4: Have fun!
+Step 4: Have fun!
 
 ### Future work:
 
