@@ -1,13 +1,23 @@
 @width: 400px;
 
+//add responsiveness mix-in
+.flyout-responsiveness {
+  @media (max-width: 720px) {
+    left: 0;
+    width: 100%;
+  }
+}
+
 //basic styles
 .flyout-container {
   position: fixed;
-  width: @width;
   z-index: 100;
   top: 0;
   bottom: 0;
   right: 0;
+
+  width: @width;
+  .flyout-responsiveness;
 
   &.flyout-container-hidden {
     display: none;
@@ -15,12 +25,12 @@
 
   .flyout {
     position: absolute;
-    width: @width;
     top: 0;
     bottom: 0;
     right: 0;
-    background: #EEE;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+
+    width: @width;
+    .flyout-responsiveness;
 
     //animation stuff
     @keyframes showFlyout {
@@ -56,3 +66,4 @@
     }
   }
 }
+

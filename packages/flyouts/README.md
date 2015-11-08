@@ -29,7 +29,11 @@ Style it whatever you want (in example is used LESS):
 
 ```
 @padding: 10px;
-.flyout {
+.flyout { // root node for each opened flyout
+  background: #EEE;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+
+  //some custom elements:
   .flyout-header {
     background: #CCC;
     padding: @padding;

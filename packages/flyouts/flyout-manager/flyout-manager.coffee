@@ -48,7 +48,3 @@ flyoutManager = new _FlyoutManager()
 Template.FlyoutManager.helpers
   templates: -> flyoutManager._flyoutTemplates.find({})
   hasOpenedFlyouts: -> flyoutManager._flyoutTemplates.find({}).count() > 0
-
-
-Template.FlyoutManager.events
-  'click .flyout-close-button': (event,tmpl) ->

@@ -7,4 +7,8 @@
 meteor-platform
 autopublish
 insecure
+
+coffeescript
+less
+
 trsdln:flyouts
