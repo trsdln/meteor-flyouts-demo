@@ -1,10 +1,48 @@
 @width: 400px;
 
+//mix ins
+
+//animation stuff
+.keyframes(@name; @arguments) {
+  @-moz-keyframes @name { @arguments();
+  }
+  @-webkit-keyframes @name { @arguments();
+  }
+  @keyframes @name { @arguments();
+  }
+}
+
+.flyout-width-keyframes(@name; @start; @end) {
+  .keyframes(@name,
+  { 0% {
+    right: @start;
+  } 100% {
+      right: @end;
+    } });
+}
+
+.flyout-width-keyframes(show-flyout, -@width, 0);
+.flyout-width-keyframes(hide-flyout, 0, -@width);
+
+//animation mix-in
+.flyout-animation(@animation) {
+  animation-name: @animation;
+  animation-duration: 1s;
+  -webkit-animation-name: @animation;
+  -webkit-animation-duration: 1s;
+  -moz-animation-name: @animation;
+  -moz-animation-duration: 1s;
+
+}
+
 //add responsiveness mix-in
 .flyout-responsiveness {
   @media (max-width: 720px) {
     left: 0;
     width: 100%;
+
+    .flyout-width-keyframes(show-flyout, -100%, 0);
+    .flyout-width-keyframes(hide-flyout, 0, -100%);
   }
 }
 
@@ -32,37 +70,12 @@
     width: @width;
     .flyout-responsiveness;
 
-    //animation stuff
-    @keyframes showFlyout {
-      0% {
-        right: -@width;
-      }
-      100% {
-        right: 0;
-      }
-    }
-
-    @keyframes hideFlyout {
-      0% {
-        right: 0;
-      }
-      100% {
-        right: -@width;
-      }
-    }
-
-    //animation mix-in
-    .flyout-animation(@animation) {
-      animation-name: @animation;
-      animation-duration: 1s;
-    }
-
     &.show-flyout {
-      .flyout-animation(showFlyout);
+      .flyout-animation(show-flyout);
     }
 
     &.hide-flyout {
-      .flyout-animation(hideFlyout);
+      .flyout-animation(hide-flyout);
     }
   }
 }
