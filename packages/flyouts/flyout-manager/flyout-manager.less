@@ -21,8 +21,8 @@
     } });
 }
 
-.flyout-width-keyframes(show-flyout, -@width, 0);
-.flyout-width-keyframes(hide-flyout, 0, -@width);
+.flyout-width-keyframes(show-flyout, -100%, 0);
+.flyout-width-keyframes(hide-flyout, 0, -100%);
 
 //animation mix-in
 .flyout-animation(@animation) {
@@ -40,9 +40,6 @@
   @media (max-width: 720px) {
     left: 0;
     width: 100%;
-
-    .flyout-width-keyframes(show-flyout, -100%, 0);
-    .flyout-width-keyframes(hide-flyout, 0, -100%);
   }
 }
 
@@ -65,10 +62,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 0;
-
-    width: @width;
-    .flyout-responsiveness;
+    width: 100%;
 
     &.show-flyout {
       .flyout-animation(show-flyout);
