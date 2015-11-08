@@ -2,7 +2,7 @@ Package.describe({
   name: 'trsdln:flyouts',
   version: '0.1.0',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Easy customizable and reactive sidebar flyouts',
   // URL to the Git repository containing the source code for this package.
   git: '',
   // By default, Meteor will default to using README.md for documentation.
@@ -23,11 +23,11 @@ Package.onUse(function (api) {
 
 
   api.addFiles([
-    'flyout-manager/flyout-manager.coffee',
     'flyout-manager/flyout-manager.html',
-    'flyout-manager/flyout-manager.less',
+    'flyout-manager/flyout-manager.coffee',
+    'flyout-manager/flyout/flyout.html',
     'flyout-manager/flyout/flyout.coffee',
-    'flyout-manager/flyout/flyout.html'
+    'flyout-manager/flyout-manager.less'
   ], 'client');
 
   api.export('FlyoutManager', 'client');
